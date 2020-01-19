@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ирина Лукина](https://up.htmlacademy.ru/javascript/19/user/1105925).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Алипкин](https://htmlacademy.ru/profile/ealipkin).
 
 ---
 
