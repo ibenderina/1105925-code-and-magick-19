@@ -1,12 +1,18 @@
 'use strict';
 
 (function () {
+  var Error = {
+    CONNECT: 'Произошла ошибка соединения',
+    TIME_LIMIT: 'Запрос не успел выполниться за '
+  };
+
+  var Url = {
+    LOAD: 'https://js.dump.academy/code-and-magick/data',
+    SAVE: 'https://js.dump.academy/code-and-magick'
+  };
+
   var TIMEOUT = 10000;
-  var ERROR_CONNECT = 'Произошла ошибка соединения';
-  var ERROR_TIMELIMIT = 'Запрос не успел выполниться за ';
-  var TIMELIMIT = 'мс';
-  var LOAD_URL = 'https://js.dump.academy/code-and-magick/data';
-  var SAVE_URL = 'https://js.dump.academy/code-and-magick';
+  var TIME_LIMIT = 'мс';
   var STATUS_ANSWER = 'Статус ответа: ';
 
   var request = function (URL, method, data, onLoad, onError) {
@@ -21,10 +27,10 @@
       }
     });
     xhr.addEventListener('error', function () {
-      onError(ERROR_CONNECT);
+      onError(Error.CONNECT);
     });
     xhr.addEventListener('timeout', function () {
-      onError(ERROR_TIMELIMIT + xhr.timeout + TIMELIMIT);
+      onError(Error.TIME_LIMIT + xhr.timeout + TIME_LIMIT);
     });
 
     xhr.timeout = TIMEOUT; // 10s
@@ -34,11 +40,11 @@
   };
 
   var load = function (onLoad, onError) {
-    request(LOAD_URL, 'GET', null, onLoad, onError);
+    request(Url.LOAD, 'GET', null, onLoad, onError);
   };
 
   var save = function (data, onLoad, onError) {
-    request(SAVE_URL, 'POST', data, onLoad, onError);
+    request(Url.SAVE, 'POST', data, onLoad, onError);
   };
 
   window.backend = {
