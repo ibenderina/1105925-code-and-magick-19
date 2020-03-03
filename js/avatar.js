@@ -24,9 +24,7 @@
     }
   });
 
-  var changeOpenIcon = function () {
+  window.changeOpenIcon = function () {
     setupOpenIcon.src = preview.src;
   };
-
-  window.changeOpenIcon = changeOpenIcon;
 }());
