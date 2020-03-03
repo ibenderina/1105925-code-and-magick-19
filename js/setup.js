@@ -110,6 +110,7 @@
     var data = new FormData(form);
     window.backend.save(data, function () {
       closePopup(setupEl);
+      window.changeOpenIcon();
     }, onWizardLoadError);
   };
 
